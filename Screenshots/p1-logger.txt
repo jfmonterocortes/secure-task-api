@@ -1,0 +1,16 @@
+Request logger output (Part 1). The custom middleware prints one "METHOD /path" line per request.
+
+PS C:\Users\pipem\Downloads\AdvWeb_Lab6\week7-task-api> npm run dev
+
+> week7-task-api@1.0.0 dev
+> nodemon src/server.js
+
+[nodemon] 3.1.14
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,cjs,json
+[nodemon] starting `node src/server.js`
+  injected env (3) from .env
+API running
+GET /api/tasks/health
+GET /api/nope
