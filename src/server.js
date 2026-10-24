@@ -8,6 +8,7 @@ const session = require('express-session');
 const passport = require('./config/passport');
 const taskRoutes = require('./routes/tasks');
 const sequelize = require('./config/database');
+const redis = require('./config/redis');
 require('./models/Task');
 require('./models/User');
 
@@ -37,6 +38,7 @@ app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).json({ error: 'Unexpected server error' });
 });
-sequelize.sync().then(() => {
+sequelize.sync().then(async () => {
+  await redis.connect();
   app.listen(process.env.PORT || 3000, () => console.log('API running'));
 });
